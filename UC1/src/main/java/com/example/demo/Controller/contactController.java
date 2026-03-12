@@ -1,13 +1,9 @@
-package com.example.demo.Controller;
+package com.example.demo.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.dto.ContactDTO;
 import com.example.demo.entity.Contact;
@@ -18,15 +14,30 @@ import com.example.demo.service.ContactService;
 public class contactController {
 
     @Autowired
-    private ContactService service;
+    ContactService service;
 
-    @PostMapping
-    public Contact createContact(@RequestBody ContactDTO dto) {
-        return service.createContact(dto);
+    // UC1
+    @PostMapping("/add")
+    public String addContact(@RequestBody ContactDTO dto) {
+        return service.addContact(dto);
     }
 
+    // UC2
     @GetMapping
     public List<Contact> getContacts() {
         return service.getAllContacts();
+    }
+
+    // UC3
+    @PutMapping("/edit/{name}")
+    public String editContact(@PathVariable String name,
+                              @RequestBody ContactDTO dto) {
+        return service.editContact(name, dto);
+    }
+
+    // UC4
+    @DeleteMapping("/delete/{name}")
+    public String deleteContact(@PathVariable String name) {
+        return service.deleteContact(name);
     }
 }

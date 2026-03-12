@@ -1,17 +1,16 @@
 package com.example.demo.service;
 
 import java.util.List;
-
 import com.example.demo.dto.ContactDTO;
 import com.example.demo.entity.Contact;
 
 public interface ContactService {
 
-    Contact createContact(ContactDTO contactDTO);
+    String addContact(ContactDTO dto);      // UC1
 
-    List<Contact> getAllContacts();
+    List<Contact> getAllContacts();         // UC2
 
-    Contact updateContact(Long id, ContactDTO contactDTO);
+    String editContact(String name, ContactDTO dto);  // UC3
 
-    void deleteContact(Long id);
+    String deleteContact(String name);      // UC4
 }
