@@ -1,12 +1,12 @@
-# HELP.md
-# .project
-# mvnw
-# mvnw.cmd
-# .gitattributes
-# .factorypath
-# .classpath
-# .settings
-# .mvn
+HELP.md
+.project
+mvnw
+mvnw.cmd
+.gitattributes
+.factorypath
+.classpath
+.settings
+.mvn
 
 target/
 .mvn/wrapper/maven-wrapper.jar
